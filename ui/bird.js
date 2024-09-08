@@ -542,23 +542,41 @@
     return /Mobi|Android/i.test(navigator.userAgent);
   }
 
+  // 锁定横屏模式（如果浏览器支持）
+  function lockOrientation() {
+    if (screen.orientation && screen.orientation.lock) {
+      screen.orientation.lock('landscape').catch(function (err) {
+        console.log('Orientation lock failed:', err);
+      });
+    }
+  }
+
   if (isMobileDevice()) {
-    // 只有在移动设备上才强制横屏并全屏
+    // 当屏幕方向改变时检测方向
     window.addEventListener("orientationchange", function () {
       if (window.orientation === 90 || window.orientation === -90) {
-        document.body.style.transform = "rotate(0deg)";
+        // 横屏时调整页面布局
         document.body.style.width = "100vw";
         document.body.style.height = "100vh";
         document.body.style.overflow = "hidden";
       } else {
+        // 如果是竖屏，提示用户旋转设备
         alert("Please rotate your device to landscape mode.");
       }
-    }, false);
+    });
 
-    // 初始化时设置移动设备的全屏尺寸
+    // 初始化时检查设备方向
+    window.addEventListener('load', function () {
+      if (window.orientation !== 90 && window.orientation !== -90) {
+        alert("Please rotate your device to landscape mode.");
+      } else {
+        lockOrientation();  // 尝试锁定为横屏
+      }
+    });
+
+    // 调整游戏容器大小
     function resizeGame() {
       var stage = document.querySelector('.stage');
-
       if (stage) {
         stage.style.width = window.innerWidth + "px";
         stage.style.height = window.innerHeight + "px";
@@ -573,19 +591,8 @@
     window.game = new Game;
     return window.game.begin();
 
-    // 仅在移动设备调整大小
     if (isMobileDevice()) {
-      function resizeGame() {
-        var stage = document.querySelector('.stage');
-
-        if (stage) {
-          stage.style.width = window.innerWidth + "px";
-          stage.style.height = window.innerHeight + "px";
-        }
-      }
-
-      window.addEventListener('resize', resizeGame);
-      resizeGame();
+      resizeGame();  // 确保游戏启动时调整为全屏
     }
   });
 

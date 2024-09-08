@@ -236,12 +236,13 @@
   }
 }
 
-@media only screen and (max-width: 768px) {
+@media screen and (orientation: landscape) {
 
   html,
   body {
     width: 100vw;
     height: 100vh;
+    overflow: hidden;
   }
 
   .stage {
@@ -249,6 +250,25 @@
     height: 100vh;
   }
 }
+
+@media screen and (orientation: portrait) {
+
+  /* 提示用户旋转设备的样式 */
+  html,
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    color: white;
+    font-size: 20px;
+  }
+
+  body::before {
+    content: "Please rotate your device to landscape mode.";
+  }
+}
+
 
 body {
   /* background-color: #222; */
