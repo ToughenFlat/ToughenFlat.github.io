@@ -248,7 +248,7 @@
       }
       if (localStorage.max_score < score) {
         localStorage.max_score = score;
-        this.$new_record.show();
+        this.$new_record.hide();
       } else {
         this.$new_record.hide();
       }

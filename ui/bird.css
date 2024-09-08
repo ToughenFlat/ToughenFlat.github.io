@@ -248,6 +248,7 @@
   .stage {
     width: 100vw;
     height: 100vh;
+    margin-top: 0px;
   }
 }
 
@@ -262,10 +263,6 @@
     background-color: #000;
     color: white;
     font-size: 20px;
-  }
-
-  body::before {
-    content: "Please rotate your device to landscape mode.";
   }
 }
 
@@ -306,12 +303,10 @@ body .stage {
   width: 50vw;
   height: 512px;
   margin: 0 auto;
-  margin-top: 100px;
   background-image: url(images/stage_sky.gif);
   background-size: 100% auto;
   background-repeat: no-repeat;
   background-position: 0 0;
-  position: relative;
 }
 
 body .stage .ground {
