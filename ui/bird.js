@@ -405,7 +405,7 @@
           if (bgMusic.paused) {
             bgMusic.play();
           }
-          
+
           return _this.stage.$elm.fadeOut(200, function () {
             _this.ready();
             return _this.stage.$elm.fadeIn(200);
@@ -417,7 +417,7 @@
           // 停止背景音乐
           var bgMusic = document.getElementById('bg-music');
           bgMusic.pause();
-    
+
           return _this.stage.$elm.fadeOut(200, function () {
             _this.begin();
             return _this.stage.$elm.fadeIn(200);
@@ -537,9 +537,56 @@
 
   })();
 
+  // 检测是否为移动设备
+  function isMobileDevice() {
+    return /Mobi|Android/i.test(navigator.userAgent);
+  }
+
+  if (isMobileDevice()) {
+    // 只有在移动设备上才强制横屏并全屏
+    window.addEventListener("orientationchange", function () {
+      if (window.orientation === 90 || window.orientation === -90) {
+        document.body.style.transform = "rotate(0deg)";
+        document.body.style.width = "100vw";
+        document.body.style.height = "100vh";
+        document.body.style.overflow = "hidden";
+      } else {
+        alert("Please rotate your device to landscape mode.");
+      }
+    }, false);
+
+    // 初始化时设置移动设备的全屏尺寸
+    function resizeGame() {
+      var stage = document.querySelector('.stage');
+
+      if (stage) {
+        stage.style.width = window.innerWidth + "px";
+        stage.style.height = window.innerHeight + "px";
+      }
+    }
+
+    window.addEventListener('resize', resizeGame);
+    resizeGame();
+  }
+
   jQuery(function () {
     window.game = new Game;
     return window.game.begin();
+
+    // 仅在移动设备调整大小
+    if (isMobileDevice()) {
+      function resizeGame() {
+        var stage = document.querySelector('.stage');
+
+        if (stage) {
+          stage.style.width = window.innerWidth + "px";
+          stage.style.height = window.innerHeight + "px";
+        }
+      }
+
+      window.addEventListener('resize', resizeGame);
+      resizeGame();
+    }
   });
 
 }).call(this);
