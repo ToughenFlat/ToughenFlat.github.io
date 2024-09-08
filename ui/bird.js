@@ -568,7 +568,7 @@
     // 初始化时检查设备方向
     window.addEventListener('load', function () {
       if (window.orientation !== 90 && window.orientation !== -90) {
-        alert("Please rotate your device to landscape mode.");
+        alert("为了更好的体验，请将手机/平板横屏操作");
       } else {
         lockOrientation();  // 尝试锁定为横屏
       }
