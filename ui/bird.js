@@ -557,11 +557,11 @@
 
   jQuery(function () {
     window.game = new Game;
-    return window.game.begin();
-
     if (isMobileDevice()) {
       resizeGame();
     }
+    
+    return window.game.begin();
   });
 
 }).call(this);
