@@ -246,7 +246,7 @@
       }
       if (localStorage.max_score < score) {
         localStorage.max_score = score;
-      } 
+      }
       this.$score.html('');
       this.$max_score.html('');
       ref = (score + '').split('');
@@ -279,7 +279,7 @@
 
     Pipes.prototype.generate = function () {
       var $bottom, $pipe, $top, last_pipe, left, y0, y1;
-      y0 = ~~(Math.random() * (250 - 70 + 1) + 70);
+      y0 = ~~(Math.random() * (200 - 70 + 1) + 10);
       y1 = y0 + this.ygap;
       last_pipe = this.pipes[this.pipes.length - 1];
       if (last_pipe) {
@@ -550,8 +550,13 @@
   function resizeGame() {
     var stage = document.querySelector('.stage');
     if (stage) {
-      stage.style.width = window.innerWidth + "px";
-      stage.style.height = window.innerHeight + "px";
+      if (window.matchMedia("(orientation: landscape)").matches) {
+        stage.style.width = window.innerWidth + "px";
+        stage.style.height = window.innerHeight + "px";
+      } else {
+        stage.style.width = window.innerHeight + "px";
+        stage.style.height = window.innerWidth + "px";
+      }
     }
   }
 
