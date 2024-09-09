@@ -538,6 +538,7 @@
     const screenCheck = window.innerWidth <= 768;
     if (userAgentCheck || screenCheck) {
       console.log("当前设备是移动设备");
+      alert("为了您更好的游戏体验，请将手机/平板横屏操作");
     } else {
       console.log("当前设备是桌面设备");
     }
