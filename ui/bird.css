@@ -236,37 +236,6 @@
   }
 }
 
-@media screen and (orientation: landscape) {
-
-  html,
-  body {
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-  }
-
-  .stage {
-    width: 100vw;
-    height: 100vh;
-    margin-top: 0px;
-  }
-}
-
-@media screen and (orientation: portrait) {
-
-  /* 提示用户旋转设备的样式 */
-  html,
-  body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: white;
-    color: white;
-    font-size: 20px;
-  }
-}
-
-
 body {
   /* background-color: #222; */
   padding: 0;
@@ -310,6 +279,22 @@ body .stage {
   position: relative;
 }
 
+@media screen and (orientation: landscape) {
+
+  html,
+  body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .stage {
+    width: 100vw;
+    height: 100vh;
+    margin-top: 0px;
+  }
+}
+
 body .stage .ground {
   content: "";
   position: absolute;
@@ -319,7 +304,6 @@ body .stage .ground {
   height: 60px;
   background-image: url(images/stage_ground.gif);
   background-size: cover;
-  /* background-repeat: repeat-x; */
   background-repeat: no-repeat;
   background-position: 0 0;
 }
