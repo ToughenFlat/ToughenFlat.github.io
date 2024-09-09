@@ -538,9 +538,9 @@
     const screenCheck = window.innerWidth <= 768;
     if (userAgentCheck || screenCheck) {
       console.log("当前设备是移动设备");
-      alert("为了您更好的游戏体验，请将手机/平板横屏操作");
-    } else {
-      console.log("当前设备是桌面设备");
+      if (!window.matchMedia("(orientation: landscape)").matches) {
+        alert("为了您更好的游戏体验，请将手机/平板横屏操作");
+      }
     }
 
     return userAgentCheck || screenCheck;
@@ -559,6 +559,16 @@
       }
     }
   }
+
+  // 监听品目方向变化
+  window.addEventListener("orientationchange", function () {
+    if (window.orientation === 90 || window.orientation === -90) {
+      console.log("手机已横屏");
+      var stage = document.querySelector('.stage');
+      stage.style.width = window.innerWidth + "px";
+      stage.style.height = window.innerHeight + "px";
+    }
+  });
 
   jQuery(function () {
     window.game = new Game;
