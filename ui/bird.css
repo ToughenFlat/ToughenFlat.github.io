@@ -260,7 +260,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #000;
+    background-color: white;
     color: white;
     font-size: 20px;
   }
@@ -300,8 +300,8 @@ body hr {
 body .stage {
   border: solid 0px rgba(255, 255, 255, 0.3);
   overflow: hidden;
-  width: 50vw;
-  height: 512px;
+  width: 60vw;
+  height: 652px;
   margin: 0 auto;
   background-image: url(images/stage_sky.gif);
   background-size: 100% auto;
@@ -316,7 +316,7 @@ body .stage .ground {
   bottom: 0;
   left: 0;
   right: 0;
-  height: 187px;
+  height: 60px;
   background-image: url(images/stage_ground.gif);
   background-size: cover;
   /* background-repeat: repeat-x; */
@@ -402,7 +402,7 @@ body .start {
   width: 147px;
   height: 120px;
   left: 58px;
-  top: 220px;
+  top: 158px;
   background-image: url(images/start.png);
   background-size: 100% auto;
   background-repeat: no-repeat;
