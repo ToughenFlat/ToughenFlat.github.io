@@ -320,8 +320,8 @@ body .stage .ground::before {
 }
 
 body .bird {
-  z-index: 1;
-  position: absolute;
+  /* z-index: 1; */
+  position: relative;
   width: 45px;
   height: 32px;
   background-image: url(images/bird.png);
@@ -403,7 +403,7 @@ body .ok {
   width: 152px;
   height: 156px;
   left: 41px;
-  top: 263px;
+  top: 208px;
   background-image: url(images/ok.png);
   background-size: 100% auto;
   background-repeat: no-repeat;
@@ -412,7 +412,7 @@ body .ok {
 }
 
 body .ok:active {
-  top: 263px;
+  top: 208px;
 }
 
 body .share {
@@ -420,7 +420,7 @@ body .share {
   width: 152px;
   height: 156px;
   left: 186px;
-  top: 263px;
+  top: 208px;
   background-image: url(images/share.png);
   background-size: 100% auto;
   background-repeat: no-repeat;
@@ -429,15 +429,15 @@ body .share {
 }
 
 body .share:active {
-  top: 263px;
+  top: 208px;
 }
 
 body .get_ready {
   position: absolute;
   width: 233px;
   height: 139px;
-  left: -32px;
-  top: 47px;
+  left: 0px;
+  top: -12px;
   background-image: url(images/get_ready.png);
   background-size: 100% auto;
   background-repeat: no-repeat;
@@ -445,10 +445,10 @@ body .get_ready {
 
 body .game_over {
   position: absolute;
-  width: 251px;
+  width: 147px;
   height: 205px;
   left: 74px;
-  top: -31px;
+  top: 0px;
   background-image: url(images/game_over.png);
   background-size: 100% auto;
   background-repeat: no-repeat;
@@ -460,7 +460,7 @@ body .tap {
   width: 105px;
   height: 131.5px;
   left: 165px;
-  top: 219px;
+  top: 140px;
   background-image: url(images/tap.png);
   background-size: 100% auto;
   background-repeat: no-repeat;
@@ -471,7 +471,7 @@ body .score_board {
   width: 302px;
   height: 155px;
   left: 41px;
-  top: 179px;
+  margin-top: -50px;
   background-image: url(images/score_board.png);
   background-size: 100% auto;
   background-repeat: no-repeat;

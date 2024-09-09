@@ -490,7 +490,7 @@
       this.state = 'ready';
       this._show('bird', 'tap', 'score');
       this.$get_ready.fadeIn(400);
-      this.bird.pos(99, 237);
+      this.bird.pos(99, 185);
       this.bird.state_suspend();
       return this.score.set(0);
     };
@@ -560,7 +560,6 @@
     if (isMobileDevice()) {
       resizeGame();
     }
-    
     return window.game.begin();
   });
 
